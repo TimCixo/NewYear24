@@ -1,6 +1,6 @@
-using UnityEngine;
-
 public class EnemySpawnerModel
 {
-    // Model properties and logic here
+    public uint EnemyCount;
+    public StageInfo StageInfo;
+    public PathPresenter Path;
 }

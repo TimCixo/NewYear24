@@ -1,8 +1,12 @@
+using System.IO;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemySpawnerView), typeof(Bootstrap))]
 public class EnemySpawnerManager : MonoBehaviour, IBootstrapable
 {
+    [SerializeField]
+    private PathManager _pathManager;
+
     private EnemySpawnerModel _model;
     private EnemySpawnerView _view;
     private EnemySpawnerPresenter _presenter;
@@ -18,8 +22,6 @@ public class EnemySpawnerManager : MonoBehaviour, IBootstrapable
 
     private void ModelInit()
     {
-        // Manager model initialization here
+        _model.Path = _pathManager.Presenter;
     }
-
-    // Manager logic here
 }

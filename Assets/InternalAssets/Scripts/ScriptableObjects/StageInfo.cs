@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StageInfo", menuName = "Stats/StageInfo")]
-public class Stage : ScriptableObject
+public class StageInfo : ScriptableObject
 {
     [Header("Stats")]
     [SerializeField, Tooltip("Array of enemy waves")]
