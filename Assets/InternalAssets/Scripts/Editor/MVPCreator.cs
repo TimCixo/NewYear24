@@ -5,19 +5,22 @@ using System.IO;
 public class MVPCreator : EditorWindow
 {
     private string _baseName = "NewFeature"; // Назва для файлів, яку можна змінювати
+    private string _path = "Assets/InternalAssets/Scripts";
 
-    [MenuItem("Tools/Create MVP Scripts")]
+    [MenuItem("Assets/Create MVP Module", false, 20)]
     public static void ShowWindow()
     {
-        GetWindow<MVPCreator>("Create MVP Scripts");
+        GetWindow<MVPCreator>("Create MVP Module");
     }
 
     void OnGUI()
     {
         GUILayout.Label("MVP Template Generator", EditorStyles.boldLabel);
+        
         _baseName = EditorGUILayout.TextField("Base Name", _baseName);
+        _path = EditorGUILayout.TextField("Path", AssetDatabase.GetAssetPath(Selection.activeObject));
 
-        if (GUILayout.Button("Generate MVP Scripts"))
+        if (GUILayout.Button("Generate MVP Module"))
         {
             CreateMVPScripts();
         }
@@ -26,19 +29,19 @@ public class MVPCreator : EditorWindow
     private void CreateMVPScripts()
     {
         // Шлях для збереження файлів
-        string path = "Assets/InternalAssets/Scripts/" + _baseName + "/";
+        _path += $"/{_baseName}/";
 
         // Створення папки, якщо вона не існує
-        if (!Directory.Exists(path))
+        if (!Directory.Exists(_path))
         {
-            Directory.CreateDirectory(path);
+            Directory.CreateDirectory(_path);
         }
 
         // Створення файлів для кожного шаблону
-        CreateScript(path, _baseName + "Model.cs", GetModelTemplate());
-        CreateScript(path, _baseName + "View.cs", GetViewTemplate());
-        CreateScript(path, _baseName + "Presenter.cs", GetPresenterTemplate());
-        CreateScript(path, _baseName + "Manager.cs", GetManagerTemplate());
+        CreateScript(_path, _baseName + "Model.cs", GetModelTemplate());
+        CreateScript(_path, _baseName + "View.cs", GetViewTemplate());
+        CreateScript(_path, _baseName + "Presenter.cs", GetPresenterTemplate());
+        CreateScript(_path, _baseName + "Manager.cs", GetManagerTemplate());
 
         // Оновлення проекту, щоб Unity розпізнав нові скрипти
         AssetDatabase.Refresh();
