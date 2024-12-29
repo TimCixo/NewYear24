@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(PathView))]
-public class PathManager : MonoBehaviour
+[RequireComponent(typeof(PathView), typeof(Bootstrap))]
+public class PathManager : MonoBehaviour, IBootstrapable
 {
     private PathModel _model;
     private PathView _view;
@@ -24,7 +24,7 @@ public class PathManager : MonoBehaviour
 
     public PathPresenter Presenter => _presenter;
 
-    private void Awake()
+    public void BootstrapInit()
     {
         _model = new PathModel();
 

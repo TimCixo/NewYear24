@@ -109,8 +109,8 @@ public class {_baseName}Presenter
         return
 $@"using UnityEngine;
 
-[RequireComponent(typeof({_baseName}View))]
-public class {_baseName}Manager : MonoBehaviour
+[RequireComponent(typeof({_baseName}View), typeof(Bootstrap))]
+public class {_baseName}Manager : MonoBehaviour, IBootstrapable
 {{
     private {_baseName}Model _model;
     private {_baseName}View _view;
@@ -118,11 +118,16 @@ public class {_baseName}Manager : MonoBehaviour
 
     public {_baseName}Presenter Presenter => _presenter;
 
-    private void Awake()
+    private void BootstrapInit()
     {{
         _model = new {_baseName}Model();
         _view = GetComponent<{_baseName}View>();
         _presenter = new {_baseName}Presenter(_model, _view);
+    }}
+
+    private void ModelInit()
+    {{
+        // Manager model initialization here
     }}
 
     // Manager logic here
