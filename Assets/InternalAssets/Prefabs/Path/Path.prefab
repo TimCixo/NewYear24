@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a51e2f413cf84ebda4e2101aebe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isBootstrapable: 0
   _components:
   - {fileID: 585808885819353563}
 --- !u!114 &2433984620456649850
@@ -94,6 +95,10 @@ PrefabInstance:
       propertyPath: 'spawnedPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2560446446415760118, guid: 13c4fef4ca5727a42aca4776a30a26ca, type: 3}
+      propertyPath: _pathManager
+      value: 
+      objectReference: {fileID: 585808885819353563}
     - target: {fileID: 4606514622845078256, guid: 13c4fef4ca5727a42aca4776a30a26ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2

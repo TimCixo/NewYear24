@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0a66bea62c3fb49aca1dc983af0dbd, type: 3}
   m_Name: Stage3
   m_EditorClassIdentifier: 
-  _waves: []
-  _interval: 0
+  _waves:
+  - {fileID: 11400000, guid: 92e8b49ae68b8e64bb0d6fd7960b83cf, type: 2}
+  - {fileID: 11400000, guid: aafab82b49511254c835f7be776b4989, type: 2}
+  - {fileID: 11400000, guid: 1dde2f3e95c85334a958e6ff28a847da, type: 2}
+  - {fileID: 11400000, guid: aafab82b49511254c835f7be776b4989, type: 2}
+  - {fileID: 11400000, guid: aafab82b49511254c835f7be776b4989, type: 2}
+  - {fileID: 11400000, guid: 4a28ce67dc976c3408e8bf37683d25d0, type: 2}
+  _interval: 1

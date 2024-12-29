@@ -9,7 +9,7 @@ public class EnemyLifecirclePresenter
     public float HitPoints => _model.HitPoints;
     public float SpawnRateCoefficient => _model.Stats.SpawnRateCoefficient;
 
-    public System.Action OnDie;
+    public System.Action OnDeath;
 
     public EnemyLifecirclePresenter(EnemyLifecircleModel model, EnemyLifecircleView view)
     {
@@ -29,7 +29,7 @@ public class EnemyLifecirclePresenter
 
     public void Die()
     {
-        OnDie?.Invoke();
+        OnDeath?.Invoke();
 
         Object.Destroy(_view.gameObject);
     }

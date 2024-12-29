@@ -185,6 +185,9 @@ GameObject:
   - component: {fileID: 4606514622845078256}
   - component: {fileID: 8410423282644636334}
   - component: {fileID: 5685815603628332686}
+  - component: {fileID: 5940113951286747388}
+  - component: {fileID: 8939373985289351596}
+  - component: {fileID: 2560446446415760118}
   m_Layer: 0
   m_Name: EnemySpawer
   m_TagString: Untagged
@@ -282,3 +285,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5940113951286747388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492139826385204214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53a51e2f413cf84ebda4e2101aebe89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isBootstrapable: 1
+  _components:
+  - {fileID: 2560446446415760118}
+--- !u!114 &8939373985289351596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492139826385204214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0fe94e7c7e1964385d93aee5a34f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2560446446415760118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492139826385204214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccb73adc5446bc4387a4f7fae9921ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pathManager: {fileID: 0}

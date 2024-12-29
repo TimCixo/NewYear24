@@ -12,12 +12,14 @@ public class EnemySpawnerPresenter
         _view = view;
     }
 
-    public void Start()
+    public void Start(StageInfo stageInfo)
     {
-        _view.StartCoroutine(StageSpawn());
+        _model.StageInfo = stageInfo;
+
+        _view.StartCoroutine(SpawnStage());
     }
 
-    private IEnumerator StageSpawn()
+    private IEnumerator SpawnStage()
     {
         for (int i = 0; i < _model.StageInfo.Waves.Length; i++)
         {
@@ -40,6 +42,7 @@ public class EnemySpawnerPresenter
         GameObject spawnedEnemy = Object.Instantiate(enemy);
 
         spawnedEnemy.GetComponent<EnemyMovementPresenter>().Points = _model.Path.Points;
+        spawnedEnemy.GetComponent<EnemyLifecirclePresenter>().OnDeath += EnemyDied;
 
         _model.EnemyCount++;
     }

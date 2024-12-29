@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 20
   _hitPoints: 10
+  _spawnRateCoefficient: 1.6
