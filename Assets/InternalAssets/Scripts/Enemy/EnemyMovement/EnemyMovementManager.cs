@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovementView), typeof(Bootstrap))]
 public class EnemyMovementManager : MonoBehaviour, IBootstrapable
 {
+    [SerializeField, Tooltip("Distance threshold to the next waypoint")]
+    private float _distanceThreshold = 0.0f;
+
     private EnemyMovementModel _model;
     private EnemyMovementView _view;
     private EnemyMovementPresenter _presenter;
@@ -18,8 +21,7 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
 
     private void ModelInit()
     {
-        // Manager model initialization here
+        _model.Presenter = GetComponent<EnemyLifecircleManager>().Presenter;
+        _model.DistanceThreshold = _distanceThreshold;
     }
-
-    // Manager logic here
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyLifecircleView), typeof(Bootstrap))]
 public class EnemyLifecircleManager : MonoBehaviour, IBootstrapable
 {
+    [SerializeField, Tooltip("Enemy stats")]
+    private EnemyStats _enemyStats;
+
     private EnemyLifecircleModel _model;
     private EnemyLifecircleView _view;
     private EnemyLifecirclePresenter _presenter;
@@ -18,8 +21,7 @@ public class EnemyLifecircleManager : MonoBehaviour, IBootstrapable
 
     private void ModelInit()
     {
-        // Manager model initialization here
+        _model.Stats = _enemyStats;
+        _model.HitPoints = _enemyStats.HitPoints;
     }
-
-    // Manager logic here
 }

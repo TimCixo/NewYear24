@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
 public class EnemyMovementView : MonoBehaviour
 {
-    // View components and UI handling here
+    public Action OnFixedUpdate;
+
+    private void FixedUpdate()
+    {
+        OnFixedUpdate?.Invoke();
+    }
 }

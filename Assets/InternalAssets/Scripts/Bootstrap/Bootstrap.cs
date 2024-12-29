@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Bootstrap : MonoBehaviour, IBootstrapable
 {
-    [SerializeField]
+    [SerializeField, Tooltip("Is this object bootstrapable?")]
     private bool _isBootstrapable;
-    [SerializeField]
+    [SerializeField, Tooltip("Components to bootstrap")]
     private MonoBehaviour[] _components;
 
     private void Awake()

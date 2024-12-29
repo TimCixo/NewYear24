@@ -5,11 +5,32 @@ public class EnemyLifecirclePresenter
     private EnemyLifecircleModel _model;
     private EnemyLifecircleView _view;
 
+    public float MovementSpeed => _model.Stats.MovementSpeed;
+    public float HitPoints => _model.HitPoints;
+    public float SpawnRateCoefficient => _model.Stats.SpawnRateCoefficient;
+
+    public System.Action OnDie;
+
     public EnemyLifecirclePresenter(EnemyLifecircleModel model, EnemyLifecircleView view)
     {
         _model = model;
         _view = view;
     }
 
-    // Presenter logic here
+    public void TakeDamage(float damage)
+    {
+        _model.HitPoints -= damage;
+
+        if (_model.HitPoints <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        OnDie?.Invoke();
+
+        Object.Destroy(_view.gameObject);
+    }
 }
