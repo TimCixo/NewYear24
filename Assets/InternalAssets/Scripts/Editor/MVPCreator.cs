@@ -118,7 +118,7 @@ public class {_baseName}Manager : MonoBehaviour, IBootstrapable
 
     public {_baseName}Presenter Presenter => _presenter;
 
-    private void BootstrapInit()
+    public void BootstrapInit()
     {{
         _model = new {_baseName}Model();
         _view = GetComponent<{_baseName}View>();
