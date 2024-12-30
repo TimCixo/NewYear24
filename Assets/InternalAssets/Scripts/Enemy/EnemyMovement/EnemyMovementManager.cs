@@ -17,6 +17,8 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
         _model = new EnemyMovementModel();
         _view = GetComponent<EnemyMovementView>();
         _presenter = new EnemyMovementPresenter(_model, _view);
+
+        ModelInit();
     }
 
     private void ModelInit()

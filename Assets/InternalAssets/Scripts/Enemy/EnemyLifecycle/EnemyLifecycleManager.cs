@@ -17,6 +17,8 @@ public class EnemyLifecycleManager : MonoBehaviour, IBootstrapable
         _model = new EnemyLifecycleModel();
         _view = GetComponent<EnemyLifecycleView>();
         _presenter = new EnemyLifecyclePresenter(_model, _view);
+
+        ModelInit();
     }
 
     private void ModelInit()
