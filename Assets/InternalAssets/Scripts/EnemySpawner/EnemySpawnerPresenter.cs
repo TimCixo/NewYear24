@@ -24,7 +24,7 @@ public class EnemySpawnerPresenter
         for (int i = 0; i < _model.StageInfo.Waves.Length; i++)
         {
             GameObject enemy = _model.StageInfo.Waves[i].Enemy;
-            float spawnRate = _model.StageInfo.Interval * enemy.GetComponent<EnemyLifecirclePresenter>().SpawnRateCoefficient; // ! Init problem probably
+            float spawnRate = _model.StageInfo.Interval * enemy.GetComponent<EnemyLifecyclePresenter>().SpawnRateCoefficient; // ! Init problem probably
 
             for (int j = 0; j < _model.StageInfo.Waves[i].Count; j++)
             {
@@ -43,7 +43,7 @@ public class EnemySpawnerPresenter
 
         spawnedEnemy.GetComponent<EnemyMovementPresenter>().Points = _model.Path.Points.ConvertAll(point => point.transform);
         spawnedEnemy.GetComponent<EnemyMovementPresenter>().EndPoint = _model.Path.EndPoint;
-        spawnedEnemy.GetComponent<EnemyLifecirclePresenter>().OnDeath += EnemyDied;
+        spawnedEnemy.GetComponent<EnemyLifecyclePresenter>().OnDeath += EnemyDied;
 
         _model.EnemyCount++;
     }

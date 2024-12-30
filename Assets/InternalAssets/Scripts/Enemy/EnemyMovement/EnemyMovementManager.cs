@@ -21,7 +21,7 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
 
     private void ModelInit()
     {
-        _model.Presenter = GetComponent<EnemyLifecircleManager>().Presenter;
+        _model.Presenter = GetComponent<EnemyLifecycleManager>().Presenter;
         _model.DistanceThreshold = _distanceThreshold;
     }
 }

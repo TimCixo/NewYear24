@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyLifecircleModel
+public class EnemyLifecycleModel
 {
     public EnemyStats Stats;
     public float HitPoints;

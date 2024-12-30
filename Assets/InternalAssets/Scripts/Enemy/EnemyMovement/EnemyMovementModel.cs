@@ -7,6 +7,6 @@ public class EnemyMovementModel
     public float DistanceThreshold = 0.0f;
     public Transform Point;
     public Transform EndPoint;
-    public EnemyLifecirclePresenter Presenter;
+    public EnemyLifecyclePresenter Presenter;
     public List<Transform> Points;
 }

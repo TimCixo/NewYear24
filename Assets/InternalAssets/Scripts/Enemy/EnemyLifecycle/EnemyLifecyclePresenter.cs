@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class EnemyLifecirclePresenter
+public class EnemyLifecyclePresenter
 {
-    private EnemyLifecircleModel _model;
-    private EnemyLifecircleView _view;
+    private EnemyLifecycleModel _model;
+    private EnemyLifecycleView _view;
 
     public float MovementSpeed => _model.Stats.MovementSpeed;
     public float HitPoints => _model.HitPoints;
@@ -11,7 +11,7 @@ public class EnemyLifecirclePresenter
 
     public System.Action OnDeath;
 
-    public EnemyLifecirclePresenter(EnemyLifecircleModel model, EnemyLifecircleView view)
+    public EnemyLifecyclePresenter(EnemyLifecycleModel model, EnemyLifecycleView view)
     {
         _model = model;
         _view = view;

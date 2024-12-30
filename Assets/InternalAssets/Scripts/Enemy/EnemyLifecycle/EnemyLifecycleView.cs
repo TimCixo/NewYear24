@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyLifecircleView : MonoBehaviour
+public class EnemyLifecycleView : MonoBehaviour
 {
     // View components and UI handling here
 }
