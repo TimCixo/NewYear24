@@ -16,6 +16,9 @@ public class EnemySpawnerManager : MonoBehaviour, IBootstrapable
     public void BootstrapInit()
     {
         _model = new EnemySpawnerModel();
+
+        ModelInit();
+
         _view = GetComponent<EnemySpawnerView>();
         _presenter = new EnemySpawnerPresenter(_model, _view);
     }

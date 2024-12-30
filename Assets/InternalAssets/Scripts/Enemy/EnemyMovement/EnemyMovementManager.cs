@@ -15,10 +15,11 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
     public void BootstrapInit()
     {
         _model = new EnemyMovementModel();
-        _view = GetComponent<EnemyMovementView>();
-        _presenter = new EnemyMovementPresenter(_model, _view);
 
         ModelInit();
+
+        _view = GetComponent<EnemyMovementView>();
+        _presenter = new EnemyMovementPresenter(_model, _view);
     }
 
     private void ModelInit()

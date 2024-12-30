@@ -15,10 +15,11 @@ public class EnemyLifecycleManager : MonoBehaviour, IBootstrapable
     public void BootstrapInit()
     {
         _model = new EnemyLifecycleModel();
-        _view = GetComponent<EnemyLifecycleView>();
-        _presenter = new EnemyLifecyclePresenter(_model, _view);
 
         ModelInit();
+
+        _view = GetComponent<EnemyLifecycleView>();
+        _presenter = new EnemyLifecyclePresenter(_model, _view);
     }
 
     private void ModelInit()

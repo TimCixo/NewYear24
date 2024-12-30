@@ -12,6 +12,9 @@ public class StageLifecycleManager : MonoBehaviour, IBootstrapable
     public void BootstrapInit()
     {
         _model = new StageLifecycleModel();
+
+        ModelInit();
+
         _view = GetComponent<StageLifecycleView>();
         _presenter = new StageLifecyclePresenter(_model, _view);
     }
