@@ -6,7 +6,8 @@ public class EnemyMovementPresenter
     private EnemyMovementModel _model;
     private EnemyMovementView _view;
 
-    public List<GameObject> Points { set {_model.Points = value;}}
+    public List<Transform> Points { set {_model.Points = value;}}
+    public Transform EndPoint { set {_model.EndPoint = value;}}
 
     public EnemyMovementPresenter(EnemyMovementModel model, EnemyMovementView view)
     {
@@ -35,6 +36,16 @@ public class EnemyMovementPresenter
 
     private void NextPoint()
     {
-        _model.Point = _model.Points[(int)_model.I++];
+        if (_model.I < _model.Points.Count)
+        {
+            _model.Point = _model.Points[(int)_model.I++];
+            
+        }
+        else
+        {
+            _model.Point = _model.EndPoint;
+        }
+
+        return;
     }
 }

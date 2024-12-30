@@ -41,7 +41,8 @@ public class EnemySpawnerPresenter
     {
         GameObject spawnedEnemy = Object.Instantiate(enemy);
 
-        spawnedEnemy.GetComponent<EnemyMovementPresenter>().Points = _model.Path.Points;
+        spawnedEnemy.GetComponent<EnemyMovementPresenter>().Points = _model.Path.Points.ConvertAll(point => point.transform);
+        spawnedEnemy.GetComponent<EnemyMovementPresenter>().EndPoint = _model.Path.EndPoint;
         spawnedEnemy.GetComponent<EnemyLifecirclePresenter>().OnDeath += EnemyDied;
 
         _model.EnemyCount++;

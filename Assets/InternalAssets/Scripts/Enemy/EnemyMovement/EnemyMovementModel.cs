@@ -5,7 +5,8 @@ public class EnemyMovementModel
 {
     public uint I = 0;
     public float DistanceThreshold = 0.0f;
-    public GameObject Point;
-    public List<GameObject> Points;
+    public Transform Point;
+    public Transform EndPoint;
     public EnemyLifecirclePresenter Presenter;
+    public List<Transform> Points;
 }
