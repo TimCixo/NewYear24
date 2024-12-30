@@ -8,5 +8,5 @@ public class EnemyMovementModel
     public Transform Point;
     public Transform EndPoint;
     public EnemyLifecyclePresenter Presenter;
-    public List<Transform> Points;
+    public List<Transform> Points = new List<Transform>();
 }

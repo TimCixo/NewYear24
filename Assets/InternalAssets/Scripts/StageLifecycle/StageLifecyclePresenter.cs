@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StageLifecyclePresenter
@@ -9,7 +10,20 @@ public class StageLifecyclePresenter
     {
         _model = model;
         _view = view;
+
+        _view.OnStart += () => _view.StartCoroutine(TryStartNextStage());
+        _model.EnemySpawner.OnStageEnd += () => _view.StartCoroutine(TryStartNextStage());
     }
 
-    // Presenter logic here
+    private IEnumerator TryStartNextStage()
+    {
+        if (_model.I >= _model.Stages.Count) 
+        {
+            yield break;
+        }
+
+        yield return new WaitForSeconds(_model.Interval);
+
+        _model.EnemySpawner.StartStage(_model.Stages[(int)_model.I++]);
+    }
 }

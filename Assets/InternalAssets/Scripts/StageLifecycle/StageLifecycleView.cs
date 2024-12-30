@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
 public class StageLifecycleView : MonoBehaviour
 {
-    // View components and UI handling here
+    public Action OnStart;
+
+    private void Start()
+    {
+        OnStart?.Invoke();
+    }
 }
