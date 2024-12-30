@@ -121,10 +121,11 @@ public class {_baseName}Manager : MonoBehaviour, IBootstrapable
     public void BootstrapInit()
     {{
         _model = new {_baseName}Model();
-        _view = GetComponent<{_baseName}View>();
-        _presenter = new {_baseName}Presenter(_model, _view);
 
         ModelInit();
+
+        _view = GetComponent<{_baseName}View>();
+        _presenter = new {_baseName}Presenter(_model, _view);
     }}
 
     private void ModelInit()
