@@ -38,7 +38,7 @@ public class EnemyMovementPresenter
     {
         if (_model.I < _model.Points.Count)
         {
-            _model.Point = _model.Points[(int)_model.I++];
+            _model.Point = _model.Points[_model.I++];
             
         }
         else

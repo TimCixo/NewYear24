@@ -24,6 +24,6 @@ public class StageLifecyclePresenter
 
         yield return new WaitForSeconds(_model.Interval);
 
-        _model.EnemySpawner.StartStage(_model.Stages[(int)_model.I++]);
+        _model.EnemySpawner.StartStage(_model.Stages[_model.I++]);
     }
 }

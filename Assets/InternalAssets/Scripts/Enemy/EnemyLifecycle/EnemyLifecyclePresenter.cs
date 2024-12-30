@@ -1,4 +1,4 @@
-using UnityEngine;
+using System;
 
 public class EnemyLifecyclePresenter
 {
@@ -9,7 +9,7 @@ public class EnemyLifecyclePresenter
     public float HitPoints => _model.HitPoints;
     public float SpawnRateCoefficient => _model.Stats.SpawnRateCoefficient;
 
-    public System.Action OnDeath;
+    public event Action OnDeath;
 
     public EnemyLifecyclePresenter(EnemyLifecycleModel model, EnemyLifecycleView view)
     {
@@ -31,6 +31,6 @@ public class EnemyLifecyclePresenter
     {
         OnDeath?.Invoke();
 
-        Object.Destroy(_view.gameObject);
+        UnityEngine.Object.Destroy(_view.gameObject);
     }
 }

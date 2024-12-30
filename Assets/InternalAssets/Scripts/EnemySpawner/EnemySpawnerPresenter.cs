@@ -7,7 +7,7 @@ public class EnemySpawnerPresenter
     private EnemySpawnerModel _model;
     private EnemySpawnerView _view;
 
-    public Action OnStageEnd;
+    public event Action OnStageEnd;
 
     public EnemySpawnerPresenter(EnemySpawnerModel model, EnemySpawnerView view)
     {

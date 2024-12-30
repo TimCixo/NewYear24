@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StageLifecycleView : MonoBehaviour
 {
-    public Action OnStart;
+    public event Action OnStart;
 
     private void Start()
     {

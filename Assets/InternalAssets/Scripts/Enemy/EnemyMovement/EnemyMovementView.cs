@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyMovementView : MonoBehaviour
 {
-    public Action OnFixedUpdate;
+    public event Action OnFixedUpdate;
 
     private void FixedUpdate()
     {
