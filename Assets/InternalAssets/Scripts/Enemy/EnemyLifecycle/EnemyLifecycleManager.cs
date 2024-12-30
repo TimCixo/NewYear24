@@ -11,6 +11,7 @@ public class EnemyLifecycleManager : MonoBehaviour, IBootstrapable
     private EnemyLifecyclePresenter _presenter;
 
     public EnemyLifecyclePresenter Presenter => _presenter;
+    public EnemyStats Stats => _enemyStats;
 
     public void BootstrapInit()
     {

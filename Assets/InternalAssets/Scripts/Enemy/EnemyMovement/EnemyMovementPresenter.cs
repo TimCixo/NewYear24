@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovementPresenter
@@ -6,13 +5,17 @@ public class EnemyMovementPresenter
     private EnemyMovementModel _model;
     private EnemyMovementView _view;
 
-    public List<Transform> Points { set {_model.Points = value;}}
-    public Transform EndPoint { set {_model.EndPoint = value;}}
+    public PathPresenter Path { set { _model.Path = value; } }
 
     public EnemyMovementPresenter(EnemyMovementModel model, EnemyMovementView view)
     {
         _model = model;
         _view = view;
+    }
+
+    public void Start()
+    {
+        _model.Point = _model.Path.Points[0].transform;
 
         _view.OnFixedUpdate += OnFixedUpdate;
     }
@@ -31,21 +34,19 @@ public class EnemyMovementPresenter
 
     private void Move()
     {
-        _view.transform.position = Vector3.MoveTowards(_view.transform.position, _model.Point.transform.position, _model.Presenter.MovementSpeed * Time.fixedDeltaTime);
+        _view.transform.position = Vector3.MoveTowards(_view.transform.position, _model.Point.transform.position, _model.Lifecycle.MovementSpeed * Time.fixedDeltaTime);
     }
 
     private void NextPoint()
     {
-        if (_model.I < _model.Points.Count)
+        if (_model.I < _model.Path.Points.Count)
         {
-            _model.Point = _model.Points[_model.I++];
-            
+            _model.Point = _model.Path.Points[_model.I++].transform;
+
         }
         else
         {
-            _model.Point = _model.EndPoint;
+            _model.Point = _model.Path.EndPoint;
         }
-
-        return;
     }
 }
