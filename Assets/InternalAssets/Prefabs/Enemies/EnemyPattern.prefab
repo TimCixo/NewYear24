@@ -124,7 +124,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4904199240268018534
 Canvas:
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b88f472683cdc45a8c08a3b6797a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 0}
+  _healthBar: {fileID: 4516771888431285062}
 --- !u!114 &-9132561535454275042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceThreshold: 0.1
-  _enemySpritePrefab: {fileID: 0}
+  _enemySpritePrefab: {fileID: 7570192897814785632}
 --- !u!1 &7570192897814785632
 GameObject:
   m_ObjectHideFlags: 0
