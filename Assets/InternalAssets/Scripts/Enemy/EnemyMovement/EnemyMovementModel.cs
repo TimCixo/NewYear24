@@ -7,4 +7,5 @@ public class EnemyMovementModel
     public Transform Point;
     public PathPresenter Path;
     public EnemyLifecyclePresenter Lifecycle;
+    public GameObject EnemySpritePrefab;
 }

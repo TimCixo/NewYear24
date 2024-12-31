@@ -20,6 +20,7 @@ public class EnemyLifecyclePresenter
     public void TakeDamage(float damage)
     {
         _model.HitPoints -= damage;
+        _view.SetHealth(_model.HitPoints, _model.Stats.HitPoints);
 
         if (_model.HitPoints <= 0)
         {

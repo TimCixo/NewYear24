@@ -35,7 +35,7 @@ public class EnemyMovementPresenter
 
     private void Rotate()
     {
-        _view.transform.up = _model.Point.transform.position - _view.transform.position;
+        _model.EnemySpritePrefab.transform.up = _model.Point.transform.position - _view.transform.position;
     }
 
     private void Move()

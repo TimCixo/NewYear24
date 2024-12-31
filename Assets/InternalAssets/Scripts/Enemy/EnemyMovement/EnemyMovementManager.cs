@@ -5,6 +5,8 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
 {
     [SerializeField, Tooltip("Distance threshold to the next waypoint")]
     private float _distanceThreshold = 0.0f;
+    [SerializeField, Tooltip("Enemy sprite prefab element")]
+    private GameObject _enemySpritePrefab;
 
     private EnemyMovementModel _model;
     private EnemyMovementView _view;
@@ -26,5 +28,6 @@ public class EnemyMovementManager : MonoBehaviour, IBootstrapable
     {
         _model.Lifecycle = GetComponent<EnemyLifecycleManager>().Presenter;
         _model.DistanceThreshold = _distanceThreshold;
+        _model.EnemySpritePrefab = _enemySpritePrefab;
     }
 }
