@@ -7,7 +7,7 @@ public class MVPCreator : EditorWindow
     private string _baseName = "NewFeature"; // Назва для файлів, яку можна змінювати
     private string _path = "Assets/InternalAssets/Scripts";
 
-    [MenuItem("Assets/Create MVP Module", false, 20)]
+    [MenuItem("Assets/Create/MVP Module", false, 0)]
     public static void ShowWindow()
     {
         GetWindow<MVPCreator>("Create MVP Module");

@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2287826846904472207, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_Color.b
-      value: 0.9433962
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287826846904472207, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_Color.g
-      value: 0.9433962
+      value: 0.9800824
       objectReference: {fileID: 0}
     - target: {fileID: 2287826846904472207, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_Color.r
-      value: 0.9433962
+      value: 0.6179246
       objectReference: {fileID: 0}
     - target: {fileID: 6429076594997577691, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_Name
-      value: CommonUnit
+      value: SnowmanUnit
       objectReference: {fileID: 0}
     - target: {fileID: 9117133170286237105, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_LocalPosition.x
