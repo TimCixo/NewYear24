@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyMovementPresenter
@@ -5,6 +7,7 @@ public class EnemyMovementPresenter
     private EnemyMovementModel _model;
     private EnemyMovementView _view;
 
+    public float DistanceToEnd => _model.DistanceToEnd;
     public PathPresenter Path { set { _model.Path = value; } }
 
     public EnemyMovementPresenter(EnemyMovementModel model, EnemyMovementView view)
@@ -31,6 +34,7 @@ public class EnemyMovementPresenter
 
         Rotate();
         Move();
+        UpdateDistanceToEnd();
     }
 
     private void Rotate()
@@ -56,5 +60,32 @@ public class EnemyMovementPresenter
         {
             _model.Point = _model.Path.EndPoint;
         }
+    }
+
+    private void UpdateDistanceToEnd()
+    {
+        float distanceToEnd = Vector3.Distance(_view.transform.position, _model.Path.EndPoint.position);
+
+        if (_model.Path.Points.Count <= _model.I)
+        {
+            _model.DistanceToEnd = distanceToEnd;
+            return;
+        }
+
+        // 1. Шлях від об'єкту до _model.Point
+        float distanceToCurrentPoint = Vector3.Distance(_view.transform.position, _model.Path.Points[_model.I].transform.position);
+
+        // 2. Сума усіх точок починаючи з _model.Path.Point[i] і закінчуючи _model.Path.Point.Last()
+        float distanceBetweenPoints = 0f;
+        for (int i = _model.I; i < _model.Path.Points.Count - 1; i++)
+        {
+            distanceBetweenPoints += Vector3.Distance(_model.Path.Points[i].transform.position, _model.Path.Points[i + 1].transform.position);
+        }
+
+        // 3. Шлях від _model.Path.Last() до _model.Path.EndPoint
+        float distanceFromLastPointToEnd = Vector3.Distance(_model.Path.Points[_model.Path.Points.Count - 1].transform.position, _model.Path.EndPoint.position);
+
+        // 4. Сума 1 2 і 3
+        _model.DistanceToEnd = distanceToCurrentPoint + distanceBetweenPoints + distanceFromLastPointToEnd;
     }
 }

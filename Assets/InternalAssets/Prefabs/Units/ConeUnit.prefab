@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConeUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 6560155826782164345, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
+      propertyPath: _unitStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 9aa48b285ce347a49a52b6d696edbc5f, type: 2}
     - target: {fileID: 9117133170286237105, guid: dcdf22d6de48dbb4e8ee8b7eb9e041d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

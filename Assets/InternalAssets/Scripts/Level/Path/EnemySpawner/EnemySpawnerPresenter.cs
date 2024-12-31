@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class EnemySpawnerPresenter
 {
     private EnemySpawnerModel _model;
     private EnemySpawnerView _view;
+
+    public List<GameObject> Enemies => _model.Enemies;
 
     public event Action OnStageEnd;
 
@@ -45,17 +48,20 @@ public class EnemySpawnerPresenter
     private void SpawnEnemy(GameObject enemy)
     {
         GameObject spawnedEnemy = UnityEngine.Object.Instantiate(enemy, _view.transform.position, Quaternion.identity);
+        EnemyMovementPresenter enemyMovementPresenter = spawnedEnemy.GetComponent<EnemyMovementManager>().Presenter;
+        EnemyLifecyclePresenter enemyLifecyclePresenter = spawnedEnemy.GetComponent<EnemyLifecycleManager>().Presenter;
 
-        spawnedEnemy.GetComponent<EnemyMovementManager>().Presenter.Path = _model.Path;
-        spawnedEnemy.GetComponent<EnemyLifecycleManager>().Presenter.OnDeath += EnemyDied;
+        enemyMovementPresenter.Path = _model.Path;
+        enemyLifecyclePresenter.OnDeath += EnemyDied;
 
-        spawnedEnemy.GetComponent<EnemyMovementManager>().Presenter.Start();
+        enemyMovementPresenter.Start();
 
-        _view.SetEnemiesCount(++_model.EnemiesCount, _model.MaxEnemiesCount);
+        _model.Enemies.Add(spawnedEnemy);
+        _view.SetEnemiesCount(_model.Enemies.Count, _model.MaxEnemiesCount);
     }
 
     private void EnemyDied()
     {
-        _view.SetEnemiesCount(--_model.EnemiesCount, _model.MaxEnemiesCount);
+        _view.SetEnemiesCount(_model.Enemies.Count, _model.MaxEnemiesCount);
     }
 }
