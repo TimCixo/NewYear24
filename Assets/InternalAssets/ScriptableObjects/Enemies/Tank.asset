@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c352d1b2f9abf6428b267ade0981e46, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  _movementSpeed: 10
+  _movementSpeed: 3
   _hitPoints: 20
   _spawnRateCoefficient: 2

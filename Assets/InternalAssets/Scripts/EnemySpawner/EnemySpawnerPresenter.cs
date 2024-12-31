@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawnerPresenter
@@ -19,6 +20,7 @@ public class EnemySpawnerPresenter
     {
         _model.StageInfo = stageInfo;
 
+        _model.MaxEnemiesCount = (int)_model.StageInfo.Waves.Sum(wave => wave.Count);
         _view.StartCoroutine(SpawnStage());
     }
 
@@ -49,11 +51,11 @@ public class EnemySpawnerPresenter
 
         spawnedEnemy.GetComponent<EnemyMovementManager>().Presenter.Start();
 
-        _model.EnemyCount++;
+        _view.SetEnemiesCount(++_model.EnemiesCount, _model.MaxEnemiesCount);
     }
 
     private void EnemyDied()
     {
-        _model.EnemyCount--;
+        _view.SetEnemiesCount(--_model.EnemiesCount, _model.MaxEnemiesCount);
     }
 }

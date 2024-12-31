@@ -21,6 +21,8 @@ public class StageLifecyclePresenter
         {
             yield break;
         }
+        
+        _view.SetStageNumber(_model.I + 1);
 
         yield return new WaitForSeconds(_model.Interval);
 

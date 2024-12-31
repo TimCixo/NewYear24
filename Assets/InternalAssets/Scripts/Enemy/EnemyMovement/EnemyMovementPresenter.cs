@@ -27,6 +27,8 @@ public class EnemyMovementPresenter
         if (distance < _model.DistanceThreshold)
         {
             NextPoint();
+            
+            _view.transform.up = _model.Point.transform.position - _view.transform.position;
         }
 
         Move();
@@ -34,7 +36,9 @@ public class EnemyMovementPresenter
 
     private void Move()
     {
-        _view.transform.position = Vector3.MoveTowards(_view.transform.position, _model.Point.transform.position, _model.Lifecycle.MovementSpeed * Time.fixedDeltaTime);
+        float movementSpeed = _model.Lifecycle.MovementSpeed * Time.fixedDeltaTime / 2f;
+
+        _view.transform.position = Vector3.MoveTowards(_view.transform.position, _model.Point.transform.position, movementSpeed);
     }
 
     private void NextPoint()
