@@ -27,11 +27,15 @@ public class EnemyMovementPresenter
         if (distance < _model.DistanceThreshold)
         {
             NextPoint();
-            
-            _view.transform.up = _model.Point.transform.position - _view.transform.position;
         }
 
+        Rotate();
         Move();
+    }
+
+    private void Rotate()
+    {
+        _view.transform.up = _model.Point.transform.position - _view.transform.position;
     }
 
     private void Move()
